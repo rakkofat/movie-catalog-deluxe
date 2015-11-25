@@ -1,0 +1,9 @@
+<ul>
+  <% @movies.each do |detail| %>
+  <li><a href="/movies/<%= detail["id"] %>"><%= detail["title"] %></a></li>
+  <li><%= detail["year"] %></li>
+  <li><%= detail["rating"] %></li>
+  <li><%= detail["genre"] %></li>
+  <li><%= detail["studio"] %></li>
+  <% end %>
+</ul>

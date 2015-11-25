@@ -1,8 +1,9 @@
-<h1><%= @actor["name"] %></h1>
+<h1><%= @actors.first["actor"] %></h1>
 
 <ul>
-  <% @actor.each do |detail| %>
+  <% @actors.each do |detail| %>
   <li>
-    <%= detail["movie"] %>: <%= detail["character"] %>
+    <a href="/movies/<%= detail["id"] %>"><%= detail["title"] %></a>: <%= detail["character"] %>
   </li>
+  <% end %>
 </ul>

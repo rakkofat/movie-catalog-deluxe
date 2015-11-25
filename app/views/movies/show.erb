@@ -1,0 +1,12 @@
+<h1> <%= @movie.first["title"] %> </h1>
+
+<ul>
+  <% @movie.each do |detail| %>
+  <li><%= detail["year"] %></li>
+  <li><%= detail["rating"] %></li>
+  <li><%= detail["genre"] %></li>
+  <li><%= detail["studio"] %></li>
+  <li><%= detail["character"] %></li>
+  <li><a href="/actors/<%= detail["actor_id"] %>"><%= detail["name"] %></a></li>
+  <% end %>
+</ul>

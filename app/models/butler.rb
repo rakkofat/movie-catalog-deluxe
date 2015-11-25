@@ -1,23 +1,19 @@
 class Butler
 
-  def initialize(db_name)
-    @db_name = db_name
-  end
-
   def db_connection
     begin
-      connection = PG.connect(dbname: @db_name)
+      connection = PG.connect(Sinatra::Application.db_config)
       yield(connection)
     ensure
       connection.close
     end
   end
 
-  def read(sql_query)
+  def fetch(sql_query)
     db_connection { |conn| conn.exec(sql_query) }
   end
 
-  def create(sql_query, data)
+  def stow(sql_query, data)
     db_connection { |conn| conn.exec_params(sql_query, data) }
   end
 
